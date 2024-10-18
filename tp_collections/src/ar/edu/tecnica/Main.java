@@ -1,114 +1,143 @@
 package ar.edu.tecnica;
 
-/**
- * @author NOMBRE Y APELLIDO ALUMNO
- * 
- */
-
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.PriorityQueue;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Main {
 
-	public static void main(String[] args) {
-		ejemploList();
-		ejemploSet();
-		ejemploMap();
-		ejemploQueue();
-		ejemploDeque();
-
-		ejemploSort();
-		ejemploReverse();
-		ejemploShuffle();
-		ejemploSwap();
-		ejemploFill();
-		ejemploMin();
-		ejemploMax();
-	}
-
-	public static void ejemploList() {
-		// ArrayList
-		ArrayList<Integer> numeros = new ArrayList<Integer>();
-		// numeros.add(0);
-	}
-
-	public static void ejemploSet() {
-		// HashSet
-		HashSet<Integer> numeros = new HashSet<Integer>();
-		// numeros.add(0);
-	}
-
-	public static void ejemploQueue() {
-		// PriorityQueue
-		PriorityQueue<Integer> numeros = new PriorityQueue<Integer>();
-		// numeros.add(0);
-	}
-
-	public static void ejemploDeque() {
-		// ArrayDeque
-		ArrayDeque<Integer> numeros = new ArrayDeque<Integer>();
-		// numeros.add(0);
-	}
-
-	public static void ejemploMap() {
-		// HashMap
-		HashMap<String, Integer> numeros = new HashMap<String, Integer>();
-		// numeros.put("X", 0);
-	}
-
-	public static void loadSortedSet() {
-		// TreeSet
-		TreeSet<Integer> numeros = new TreeSet<Integer>();
-		// numeros.add(0);
-	}
-
-	public static void loadSortedMap() {
-		// TreeMap
-		TreeMap<String, Integer> numeros = new TreeMap<String, Integer>();
-		// numeros.put("X", 0);
-	}
-
-	public static void ejemploSort() {
-		// Collections.sort(null);
-	}
-
-	public static void ejemploReverse() {
-		// Collections.reverse();
-	}
-
-	public static void ejemploShuffle() {
-		// Collections.shuffle();
-	}
-
-	public static void ejemploSwap() {
-		// Collections.swap();
-	}
-
-	public static void ejemploFill() {
-		// Collections.fill();
-	}
-
-	public static void ejemploMin() {
-		ArrayList<Integer> numeros = new ArrayList<Integer>();
-		numeros.add(2);
-		numeros.add(33);
-		numeros.add(-32);
-		var min = Collections.min(numeros);
-
-		System.out.println("""
-				El mínimo es:
-				              """ + min);
-	}
-
-	public static void ejemploMax() {
-		
-	}
-
+    public static void main(String[] args) {
+        EjemploFrutas ejemplo = new EjemploFrutas();
+        
+        // List
+        ejemplo.ejemploList();
+        
+        // Set
+        ejemplo.ejemploSet();
+        
+        // Map
+        ejemplo.ejemploMap();
+        
+        // Queue
+        ejemplo.ejemploQueue();
+        
+        // Deque
+        ejemplo.ejemploDeque();
+        
+        // Sort
+        ejemplo.ejemploSort();
+        
+        // Reverse
+        ejemplo.ejemploReverse();
+        
+        // Shuffle
+        ejemplo.ejemploShuffle();
+        
+        // Swap
+        ejemplo.ejemploSwap();
+        
+        // Fill
+        ejemplo.ejemploFill();
+        
+        // Min
+        ejemplo.ejemploMinMax();
+    }
 }
+
+class EjemploFrutas {
+
+    public void ejemploList() {
+        List<String> frutas = new ArrayList<>(Arrays.asList(
+            "Manzana", "Banana", "Cereza", "Durazno", "Uva"));
+        System.out.println("Contenido de la lista de frutas: " + frutas);
+    }
+
+    public void ejemploSet() {
+        Set<String> frutas = new HashSet<>(Arrays.asList(
+            "Manzana", "Banana", "Cereza", "Durazno", "Uva"));
+        System.out.println("Contenido del set de frutas: " + frutas);
+    }
+
+    public void ejemploMap() {
+        Map<String, Integer> frutasConCalorias = new HashMap<>();
+        frutasConCalorias.put("Manzana", 52); // Baja caloría
+        frutasConCalorias.put("Banana", 89); // Moderada
+        frutasConCalorias.put("Cereza", 50); // Baja
+        frutasConCalorias.put("Durazno", 39); // Muy baja
+        frutasConCalorias.put("Uva", 69); // Moderada
+        System.out.println("Contenido del mapa de frutas con calorías: " + frutasConCalorias);
+    }
+
+    public void ejemploQueue() {
+        Queue<String> cola = new LinkedList<>(Arrays.asList(
+            "Manzana", "Banana", "Cereza"));
+        System.out.println("Contenido de la cola (Queue): " + cola);
+    }
+
+    public void ejemploDeque() {
+        Deque<String> deque = new ArrayDeque<>(Arrays.asList(
+            "Manzana", "Banana", "Cereza", "Durazno", "Uva"));
+        System.out.println("Contenido de la deque: " + deque);
+    }
+
+    public void ejemploSort() {
+        List<String> frutas = new ArrayList<>(Arrays.asList(
+            "Manzana", "Banana", "Cereza", "Durazno", "Uva"));
+        Collections.sort(frutas);
+        System.out.println("Lista de frutas ordenada: " + frutas);
+    }
+
+    public void ejemploReverse() {
+        List<String> frutas = new ArrayList<>(Arrays.asList(
+            "Manzana", "Banana", "Cereza", "Durazno", "Uva"));
+        Collections.reverse(frutas);
+        System.out.println("Lista de frutas revertida: " + frutas);
+    }
+
+    public void ejemploShuffle() {
+        List<String> frutas = new ArrayList<>(Arrays.asList(
+            "Manzana", "Banana", "Cereza"));
+        Collections.shuffle(frutas);
+        System.out.println("Lista de frutas mezclada: " + frutas);
+    }
+
+    public void ejemploSwap() {
+        List<String> lista = new ArrayList<>(Arrays.asList("Manzana", "Banana"));
+        Collections.swap(lista, 0, 1);
+        System.out.println("Lista después de swap: " + lista);
+    }
+
+    public void ejemploFill() {
+        List<String> lista = new ArrayList<>(Arrays.asList("Fruta 1", "Fruta 2", "Fruta 3"));
+        Collections.fill(lista, "Fruta Genérica");
+        System.out.println("Lista después de fill: " + lista);
+    }
+
+    public void ejemploMinMax() {
+        Map<String, Integer> frutasConCalorias = new HashMap<>();
+        frutasConCalorias.put("Manzana", 52);
+        frutasConCalorias.put("Banana", 89);
+        frutasConCalorias.put("Cereza", 50);
+        frutasConCalorias.put("Durazno", 39);
+        frutasConCalorias.put("Uva", 69);
+        
+        // Encontrar la fruta con menor y mayor cantidad de calorías
+        String frutaMin = null;
+        String frutaMax = null;
+        int minCalorias = Integer.MAX_VALUE;
+        int maxCalorias = Integer.MIN_VALUE;
+
+        for (Map.Entry<String, Integer> entry : frutasConCalorias.entrySet()) {
+            if (entry.getValue() < minCalorias) {
+                minCalorias = entry.getValue();
+                frutaMin = entry.getKey();
+            }
+            if (entry.getValue() > maxCalorias) {
+                maxCalorias = entry.getValue();
+                frutaMax = entry.getKey();
+            }
+        }
+
+        System.out.println("La fruta con menor cantidad de calorías es: " + frutaMin + " con " + minCalorias + " calorías.");
+        System.out.println("La fruta con mayor cantidad de calorías es: " + frutaMax + " con " + maxCalorias + " calorías.");
+    }
+}
+
